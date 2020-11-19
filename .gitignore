@@ -1,3 +1,7 @@
+# Ignore word temp-files
+*.*~
+
+
 # Ignore list for Eagle, a PCB layout tool
 
 # Backup files
