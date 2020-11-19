@@ -1,8 +1,17 @@
-#define LedS1V 10
-#define LedS2V 5
+#define LedS1Vi 11
+#define LedS1Va 12
+#define LedS1Pu 9
+#define LedS2Vi 6
+#define LedS2Va 5
+#define LedS2Pu 4
+
 void setup(){
-  pinMode(LedS1V, OUTPUT);
-  pinMode(LedS2V, OUTPUT);
+  pinMode(LedS1Vi, OUTPUT);
+  pinMode(LedS1Va, OUTPUT);
+  pinMode(LedS1Pu, OUTPUT);
+  pinMode(LedS2Vi, OUTPUT);
+  pinMode(LedS2Va, OUTPUT);
+  pinMode(LedS2Pu, OUTPUT);
   Serial.begin(9600);
   Serial.println("Startup");
 }
@@ -12,7 +21,9 @@ byte tehoS1,tehoS2=0; //muuttujat tehon säätämiseen
 bool countUpS1, countUpS2 = true; //muuttujat suunnan määrämiseen
 
 void breathS1(){
-  analogWrite(LedS1V, tehoS1);
+  analogWrite(LedS1Vi, tehoS1);
+  analogWrite(LedS1Va, tehoS1);
+  analogWrite(LedS1Pu, tehoS1);
   if( countUpS1 == true ) {
     tehoS1 = tehoS1 +1;//Kasvata muuttujan arvoa yhdellä
   }else{
@@ -30,7 +41,9 @@ void breathS1(){
 }
 
 void breathS2(){
-  analogWrite(LedS2V, tehoS2);
+  analogWrite(LedS2Vi, tehoS2);
+  analogWrite(LedS2Va, tehoS2);
+  analogWrite(LedS2Pu, tehoS2);
   if( countUpS2 == true ) {
     tehoS2 = tehoS2 +2;//Kasvata muuttujan arvoa kahdella
   }else{
